@@ -86,6 +86,32 @@
                     <target>${javaLanguage.version}</target>
                 </configuration>
             </plugin>
+
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-shade-plugin</artifactId>
+              <version>2.3</version>
+              <executions>
+                <execution>
+                  <phase>package</phase>
+                  <goals>
+                    <goal>shade</goal>
+                  </goals>
+                  <configuration>
+                    <relocations>
+                      <relocation>
+                        <pattern>org.apache</pattern>
+                        <shadedPattern>microsoft.exchange.webservices.org.apache</shadedPattern>
+                      </relocation>
+                      <relocation>
+                        <pattern>org.joda</pattern>
+                        <shadedPattern>microsoft.exchange.webservices.org.joda</shadedPattern>
+                      </relocation>
+                    </relocations>
+                  </configuration>
+                </execution>
+              </executions>
+            </plugin>
         </plugins>
         <!-- Used to bump all of the various core plugins up to Maven current.
             Use this in conjunction with the versions-maven-plugin to keep your Maven
