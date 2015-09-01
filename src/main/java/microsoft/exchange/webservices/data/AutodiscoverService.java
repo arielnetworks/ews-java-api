@@ -340,6 +340,7 @@ public final class AutodiscoverService extends ExchangeServiceBase implements
 
     try {
       request = new HttpClientWebRequest(httpClient, httpContext);
+      request.setProxy(getWebProxy());
 
       try {
         request.setUrl(URI.create(url).toURL());
@@ -1474,6 +1475,7 @@ public final class AutodiscoverService extends ExchangeServiceBase implements
       HttpWebRequest request = null;
       try {
         request = new HttpClientWebRequest(httpClient, httpContext);
+        request.setProxy(getWebProxy());
 
         try {
           request.setUrl(autoDiscoverUrl.toURL());

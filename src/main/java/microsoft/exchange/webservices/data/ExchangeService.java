@@ -3524,6 +3524,8 @@ public final class ExchangeService extends ExchangeServiceBase implements
 
     AutodiscoverService autodiscoverService = new AutodiscoverService(this,
         requestedServerVersion);
+    autodiscoverService.setWebProxy(getWebProxy());
+
     autodiscoverService
         .setRedirectionUrlValidationCallback(validateRedirectionUrlCallback);
     autodiscoverService.setEnableScpLookup(this.getEnableScpLookup());
